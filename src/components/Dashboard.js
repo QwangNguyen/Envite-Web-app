@@ -29,12 +29,12 @@ export function Dashboard(props) {
                     </div>
                 </div>
                 <div className='dashboardCard long'>
-                        <p className='bold titleCard'>Earth Day:</p>
-                        <p className='dataDisplay'>(Represent the date that earth's yearly carbon threshold is passed if everyone lives the same way as you)</p>
-                        <p className='dataDisplay'> March 25th</p>
+                    <p className='bold titleCard'>Earth Day:</p>
+                    <p className='dataDisplay'>(Represent the date that earth's yearly carbon threshold is passed if everyone lives the same way as you)</p>
+                    <p className='dataDisplay'> March 25th</p>
                 </div>
                 <p className='bold titleCard firstTitleCard'>Questions answered correct:</p>
-                <ProgressBar variant="success" animated now={props.score[0]} max={props.score[1]} label={(props.score[1] === 0 ? '0' : props.score[0]/props.score[1] * 100 + '%')} className='barChart'/>
+                <ProgressBar variant="success" animated now={props.score[0]} max={props.score[1]} label={(props.score[1] === 0 ? '0' : props.score[0] / props.score[1] * 100 + '%')} className='barChart' />
                 <p className='bold titleCard firstTitleCard'>Improvement:</p>
                 <ProgressBar variant="primary" animated now={25}  label={40 + '%'}className='barChart'/>
             </main>

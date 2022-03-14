@@ -22,7 +22,6 @@ export function Dashboard(props) {
         return(
             <main>
                 <h1 className='text-center bold greeting'>Hello User</h1>
-                {/* Profile Picture */}
                 <div className='container spaceBetween centerElement'>
                     {displayCards}    
                 </div>

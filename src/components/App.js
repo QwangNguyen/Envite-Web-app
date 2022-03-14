@@ -17,6 +17,7 @@ import { Home } from './Home';
 import { About } from './About';
 import { Login } from './login';
 import ASSUMPTIONS from '../data/assumptions.json';
+{/* Data from https://www3.epa.gov/carbon-footprint-calculator/ */}
 
 function App(props) {
   const[category, setCategory] = useState('');
@@ -28,7 +29,6 @@ function App(props) {
                                                 "electricity":"", "naturalGas":"", "fuelOil":"", "propane":"",
                                                 "plastic":false, "glass":false, "aluminum":false, "paper":false,
                                                 "gasOption":"dollars", "electricityOption":"dollars", "fuelOption":"dollars", "propaneOption":"dollars"}]);
-
   const categoryOptions = ["21", "9919", "1215", "267", "3835"];
 
   const setCat = (cat) => {

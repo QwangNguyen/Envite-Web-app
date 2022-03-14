@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 export function TriviaQuestion(props) {
     const [questionList, setQuestionList] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => { {/* https://jservice.io/ */}
         fetch(`https://jservice.io/api/category?id=${props.id}`)
           .then((res) => res.json())
           .then((data) => {

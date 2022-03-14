@@ -1,11 +1,24 @@
 import React from 'react'; 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Login } from './login';
+<<<<<<< HEAD
 // import { propTypes } from 'react-bootstrap/esm/Image';
+=======
+>>>>>>> a9b939f4631d0eaf0dd334dc14f857db5a168da1
 
 export function Dashboard(props) {
+    let dashboardInfo = [{"cardTitle" : "CO2 Generated in One Year", "cardDisplay": props.scoreData[0]["co2/year"] + " lbs"},
+                        {"cardTitle" : "Sustainability Score:", "cardDisplay": props.scoreData[0]["sustainabilityScore"]},
+                        {"cardTitle" : "Equivalent Earths Used:", "cardDisplay": props.scoreData[0]["equivalentEarths"]}];
 
-    console.log(props);
+    const displayCards = dashboardInfo.map((card, index) => {
+        return (
+            <div className='dashboardCard' key={index}>
+                <p className='bold titleCard'>{card.cardTitle}</p>
+                <p className='dataDisplay'>{card.cardDisplay}</p> 
+            </div>
+        )
+    });
 
     if(!props.loggedIn) {
         return <Login loginCallback={props.loginCallback} source="/dashboard"/>
@@ -13,6 +26,7 @@ export function Dashboard(props) {
         return(
             <main>
                 <h1 className='text-center bold greeting'>Hello User</h1>
+<<<<<<< HEAD
                 {/* Profile Picutre */}
                 <div className='container spaceBetween centerElement' aria-label="Dashboard">
                     <div className='dashboardCard'>
@@ -27,6 +41,11 @@ export function Dashboard(props) {
                         <p className='bold titleCard'>Equivalent Earths Used:</p>
                         <p className='dataDisplay'>2.5</p>
                     </div>
+=======
+                {/* Profile Picture */}
+                <div className='container spaceBetween centerElement'>
+                    {displayCards}    
+>>>>>>> a9b939f4631d0eaf0dd334dc14f857db5a168da1
                 </div>
                 <div className='dashboardCard long'>
                     <p className='bold titleCard'>Earth Day:</p>

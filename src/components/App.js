@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import {InputData} from './InputData';
 import {InsertData} from './InsertData';
 import NavBar from './NavBar';
@@ -16,12 +16,18 @@ import { CorrectTrivia } from './CorrectTrivia';
 import { Home } from './Home';
 import { About } from './About';
 import { Login } from './login';
+import ASSUMPTIONS from '../data/assumptions.json';
 
 function App(props) {
   const[category, setCategory] = useState('');
   const[questionsCorrect, setQuestionsCorrect] = useState([0, 0]);
   const[isLoggedIn, setisLoggedIn] = useState(false);
   const[isCorrect, setIsCorrect] = useState(false);
+  const[scoreData, setScoreData] = useState([{"co2/year":0, "sustainabilityScore":0, "equivalentEarths":0}])
+  const [inputValue, setInputValue] = useState([{"mpd":"", "mpg":"",
+                                                "electricity":"", "naturalGas":"", "fuelOil":"", "propane":"",
+                                                "plastic":false, "glass":false, "aluminum":false, "paper":false,
+                                                "gasOption":"dollars", "electricityOption":"dollars", "fuelOption":"dollars", "propaneOption":"dollars"}]);
 
   const categoryOptions = ["21", "9919", "1215", "267", "3835"];
 
@@ -50,29 +56,62 @@ function App(props) {
     setisLoggedIn(true);
   }
 
+  const handleChange = (event) => {
+    let newValue = event.target.value;
+    let isChecked = event.target.checked;
+    let section = event.target.name;
+    let inputValueCopy = [...inputValue];
+    if(newValue === "on" || newValue === "off"){ 
+      inputValueCopy[0][section] = isChecked;
+    } else {
+      inputValueCopy[0][section] = newValue;
+    }
+    console.log(inputValueCopy);
+    setInputValue(inputValueCopy);
+  }
+  
+  const computeScore = () => {
+    let vehicleCo2 = (inputValue[0]["mpd"] / inputValue[0]["mpg"]) * ASSUMPTIONS[0]["co2/gallon"] * 365;
+    let energyCo2 = (inputValue[0]["naturalGas"] * 
+                    (inputValue[0]["gasOption"] === "dollar" ? ASSUMPTIONS[1]["co2/$"] : ASSUMPTIONS[1]["co2/therm"]))
+                    + (inputValue[0]["electricity"] * 
+                    (inputValue[0]["electricityOption"] === "dollar" ? ASSUMPTIONS[2]["co2/$"] : ASSUMPTIONS[2]["co2/kwh"]))
+                    + (inputValue[0]["fuelOil"] * 
+                    (inputValue[0]["fuelOption"] === "dollar" ? ASSUMPTIONS[3]["co2/$"] : ASSUMPTIONS[3]["co2/gallon"]))
+                    + (inputValue[0]["propane"] * 
+                    (inputValue[0]["propaneOption"] === "dollar" ? ASSUMPTIONS[4]["co2/$"] : ASSUMPTIONS[4]["co2/gallon"]));
+    energyCo2 = energyCo2 * 12;
+    let wasteC02 =  (inputValue[0]["plastic"] ? ASSUMPTIONS[5]["plastic"] : 0) +
+                    (inputValue[0]["glass"] ? ASSUMPTIONS[5]["glass"] : 0) +
+                    (inputValue[0]["aluminum"] ? ASSUMPTIONS[5]["metal"] : 0) +
+                    (inputValue[0]["paper"] ? ASSUMPTIONS[5]["paper"] : 0);
+    let totalWaste = vehicleCo2 + energyCo2 - wasteC02;
+    let earthsUsed = (totalWaste * 7753000000) / 92594150117649.6;
+    let sustainabilityScore = (92594150117649.6 / 7753000000) / totalWaste;
+    let earthData = [{"co2/year":totalWaste, "sustainabilityScore":sustainabilityScore, "equivalentEarths":earthsUsed}];
+    setScoreData(earthData);
+  }
+  
   return (
     <>
       <NavBar />
       <Routes>
+        <Route path="/*" element={<Navigate to="/"/>}/>
         <Route path="login" element={<Login loginCallback={logIn} source="/"/>}  />
         <Route path="/" element={<Home />} />
         <Route path="inputData" element={<InputData />} />
-        <Route path="insertData" element={<InsertData />}>
-          <Route path="insertEnergy" element={<InsertEnergy />} />
-          <Route path="insertWaste" element={<InsertWaste />} />
-          <Route path="insertVehicle" element={<InsertVehicle />} />
-          <Route index element={<InsertVehicle/>} />
+        <Route path="insertData" element={<InsertData computeScore={computeScore}/>}>
+          <Route path="insertEnergy" element={<InsertEnergy changeCallback={handleChange} currValue={inputValue}/>} />
+          <Route path="insertWaste" element={<InsertWaste changeCallback={handleChange} currValue={inputValue}/>} />
+          <Route path="insertVehicle" element={<InsertVehicle changeCallback={handleChange} currValue={inputValue}/>} />
+          <Route index element={<InsertVehicle changeCallback={handleChange} currValue={inputValue}/>} />
         </Route>
         <Route path="triviaStartPage" element={<TriviaStartPage />} />
         <Route path="triviaCategory" element={<TriviaCategory setCatCallback={setCat} />} />
         <Route path="triviaQuestion" element={<TriviaQuestion id={category} questionCallback={answerQuestion} />} />
         <Route path="correct" element={<CorrectTrivia correct={isCorrect}/>} />
-
-        {/*}
-        <Route path="incorrect" element={<IncorrectAnswer />} /> 
-        */}
-        <Route path="sustainabilityScore" element={<SustainabilityScore />}/>
-        <Route path="dashboard" element={<Dashboard score={questionsCorrect} loggedIn={isLoggedIn} loginCallback={logIn} />}/>
+        <Route path="sustainabilityScore" element={<SustainabilityScore scoreData={scoreData}/>}/>
+        <Route path="dashboard" element={<Dashboard score={questionsCorrect} loggedIn={isLoggedIn} loginCallback={logIn} scoreData={scoreData}/>}/>
         <Route path="about" element={<About />}/>
       </Routes>
       <Footer/>

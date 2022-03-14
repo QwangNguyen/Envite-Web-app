@@ -1,0 +1,41 @@
+[
+    {   "title": "Vehicle",
+        "co2/gallon": 19.6,
+        "avgMPG": 21.6,
+        "avgYearlyMiles": 11398,
+        "avgEmissions/year": 10484
+    },
+    {   
+        "title": "NaturalGas",
+        "avgCost/Therm": 1.04,
+        "avgEmissions/year": 3071,
+        "co2/therm": 11.7,
+        "co2/$": 11.25
+    },
+    {   
+        "title": "Electricity",
+        "avgEmissions/year": 5455,
+        "co2/kwh": 1.24234,
+        "co2/$": 10.457
+    },
+    {
+        "title": "FuelOil",
+        "avgEmissions/year": 4848,
+        "co2/gallon": 22.61,
+        "co2/$": 5.62
+    },
+    {
+        "title": "Propane",
+        "avgEmissions/year": 2243,
+        "co2/gallon": 12.43,
+        "co2/$": 5.032
+    },
+    {
+        "title": "Waste",
+        "avgEmissions/year": 692,
+        "plastic": 35.56,
+        "glass": 25.39,
+        "paper": 140.6,
+        "metal": 89.38
+    }
+]

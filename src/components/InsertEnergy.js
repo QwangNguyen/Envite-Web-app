@@ -1,42 +1,29 @@
 import React from 'react';
 
-export function InsertEnergy() {
-    return(
-        <form>
-          <div>
-            <label htmlFor="NaturalGas" className="formInput labelForm">Natural Gas Usage:</label><br/>
-            <input type="text" name="NaturalGas" id="NaturalGas" className="textBox formInput"/>
-            <select className="selectForm">
-              <option>Dollars</option>
-              <option>Therms</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="Electricity" className="formInput labelForm">Electricity:</label><br/>
-            <input type="text" name="Electricity" id ="Electricity" className="textBox formInput"/>
-            <select className="selectForm">
-              <option>Dollars</option>
-              <option>kWh</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="FuelOil" className="formInput labelForm">Fuel Oil:</label><br/>
-            <input type="text" name="FuelOil" id="FuelOil" className="textBox formInput"/>
-            <select className="selectForm">
-              <option>Dollars</option>
-              <option>Gallons</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="Propane" className="formInput labelForm">Propane:</label><br/>
-            <input type="text" name="Propane" id="Propane" className="textBox formInput"/> 
-            <select className="selectForm">
-              <option>Dollars</option>
-              <option>Gallons</option>
-            </select>
-          </div>
-        </form>
-    );
+export function InsertEnergy(props) {
+  let formInfo = [{"name": "naturalGas", "option": "gasOption", "text": "Natural Gas Usage per Month:", "unit": "therms", "unitText": "Therms"},
+                  {"name": "electricity", "option": "electricityOption", "text": "Electricity per Month:", "unit": "kWh", "unitText": "kWh"},
+                  {"name": "fuelOil", "option": "fuelOption", "text": "Fuel Oil per Month:", "unit": "gallons", "unitText": "Gallons"},
+                  {"name": "propane", "option": "propaneOption", "text": "Propane per Month:", "unit": "gallons", "unitText": "Gallons"}];
+  
+  const formDivs = formInfo.map((div) => {
+    return (
+      <div>
+        <label htmlFor={div.name} className="formInput labelForm">{div.text}</label><br/>
+        <input type="number" name={div.name} onChange={props.changeCallback} value={props.currValue[0][div.name]} id={div.name} className="textBox formInput"/>
+        <select className="selectForm" onChange={props.changeCallback} name={div.option} value={props.currValue[0][div.name]}>
+          <option value="dollars">Dollars</option>
+          <option value={div.unit}>{div.unitText}</option>
+        </select>
+      </div>
+    )
+  });
+
+  return(
+      <form>
+        {formDivs}
+      </form>
+  );
 }
 
 

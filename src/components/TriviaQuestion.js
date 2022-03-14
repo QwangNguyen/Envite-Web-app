@@ -29,6 +29,12 @@ export function TriviaQuestion(props) {
     }
     
     let question = questionList[0].question;
+
+    console.log(question.length);
+
+    if (question.length === 0) {
+        question = questionList[1].question;
+    }
     
     answerList = answerList.sort(() => Math.random() - 0.5);
 

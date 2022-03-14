@@ -391,8 +391,6 @@ form{
     width: 3em;
 }
 
-
-
 /***************Larger Screens Styling ******/
 @media (min-width:768px) {
     main {
@@ -438,11 +436,6 @@ form{
     }
 
     /* dashboard css ****************************************/
-    .avatar img {
-        width: 300px;
-        height: 200px;
-        margin-bottom: 5em;
-    }
     .dashboardContainer {
         /* set the text style for both emission containers */
         margin-left: 30em;
@@ -456,7 +449,6 @@ form{
         padding: 5em;
         margin-left: 2em;
     }
-
     .firstTitleCard {
         display: block;
     }

@@ -21,25 +21,47 @@ export function TriviaQuestion(props) {
     }
     
     let correctAnswer = questionList[0].answer;
+    
     let answerList = [];
+    
     for(let i = 0; i < 4; i ++) {
         answerList.push(questionList[i].answer);
     }
+    
     let question = questionList[0].question;
+    
     answerList = answerList.sort(() => Math.random() - 0.5);
 
     const handleClick = (event) => {
         props.questionCallback(event.currentTarget.name === correctAnswer);
     }
 
-    return (
-        <main className="centerMain">
-            <div className="container containerTrivia">
-                <p className="question">{question}</p>
-            </div>
-            <div className="container containerTrivia containerPadding">
-                <div className="row">
-                    <div className="col-md-6 d-flex">
+    let questionRows = answerList.map((answer, index) => {
+        if (index === 0 || index === 3) {
+            return (
+                <div className="col-md-6 d-flex">
+                    <div className="buttonbody">
+                        <Link to="/correct" className="btn btn-lg triviaCategory" onClick={handleClick} name={answer}>
+                            {answer}
+                        </Link>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className="col-md-6 d-flex">
+                    <div className="buttonbody">
+                        <Link to="/correct" className="btn btn-lg triviaCategory buttonTan" onClick={handleClick} name={answer}>
+                            {answer}
+                        </Link>
+                    </div>
+                </div>
+            )
+        }
+    });
+
+    /*
+<div className="col-md-6 d-flex">
                         <div className="buttonbody">
                             <Link to="/correct" className="btn btn-lg triviaCategory" onClick={handleClick} name={answerList[0]}>
                                 {answerList[0]}
@@ -67,6 +89,16 @@ export function TriviaQuestion(props) {
                             </Link>
                         </div>
                     </div>
+    */
+
+    return (
+        <main className="centerMain">
+            <div className="container containerTrivia">
+                <p className="question">{question}</p>
+            </div>
+            <div className="container containerTrivia containerPadding">
+                <div className="row">
+                    {questionRows} 
                 </div>
             </div>
         </main>     

@@ -26,10 +26,9 @@ function App(props) {
   const[isLoggedIn, setisLoggedIn] = useState(false);
   const[isCorrect, setIsCorrect] = useState(false);
   const[scoreData, setScoreData] = useState([{"co2/year":0, "sustainabilityScore":0, "equivalentEarths":0}])
-  const [inputValue, setInputValue] = useState([{"mpd":"", "mpg":"",
-                                                "electricity":"", "naturalGas":"", "fuelOil":"", "propane":"",
-                                                "plastic":false, "glass":false, "aluminum":false, "paper":false,
-                                                "gasOption":"dollars", "electricityOption":"dollars", "fuelOption":"dollars", "propaneOption":"dollars"}]);
+  const [inputValue, setInputValue] = useState([{"mpd": "", "mpg": "", "electricity": "", "naturalGas": "", "fuelOil": "", "propane": "",
+                                                "plastic": false, "glass": false, "aluminum": false, "paper": false, "gasOption": "dollars",
+                                                "electricityOption": "dollars", "fuelOption": "dollars", "propaneOption": "dollars"}]);
   const categoryOptions = ["21", "9919", "1215", "267", "3835"];
 
   const setCat = (cat) => {

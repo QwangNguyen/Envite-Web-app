@@ -1,14 +1,17 @@
 import React from 'react';
 
-export function InsertVehicle() {
+export function InsertVehicle(props) {
     return(
         <form>
-            <label htmlFor="WeeklyMiles" className="formInput labelForm">Miles Driven Per Day:</label><br/>
-            <input type="text" name="WeeklyMiles" id="WeeklyMiles" className="textBox formInput"/><br/>
-            <label htmlFor="MilesPerGallon" className="formInput labelForm">Miles Per Gallon of Vehicle:</label><br/>
-            <input type="text" name="WeeklyMiles" id="MilesPerGallon" className="textBox formInput"/><br/>
-            <label htmlFor="PublicTransportation" className="formInput labelForm">Hours Spent on Public Transportation Daily:</label><br/>
-            <input type="text" name="WeeklyMiles" id="PublicTransportation" className="textBox formInput"/>
+            <label htmlFor="milesPerDay" className="formInput labelForm">
+                Miles Driven Per Day:
+            </label><br/>
+            <input type="number" name="mpd" onChange={props.changeCallback} value={props.currValue[0]["mpd"]} id="milesPerDay" className="textBox formInput"/><br/>
+
+            <label htmlFor="milesPerGallon" className="formInput labelForm">
+                Miles Per Gallon of Vehicle:
+            </label><br/>
+            <input type="number" name="mpg" onChange={props.changeCallback} value={props.currValue[0]["mpg"]} id="milesPerGallon" className="textBox formInput"/><br/>
         </form>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import {InputData} from './InputData';
 import {InsertData} from './InsertData';
 import NavBar from './NavBar';
@@ -14,7 +14,6 @@ import { TriviaCategory } from './TriviaCategory';
 import { TriviaQuestion } from './TriviaQuestion';
 import { CorrectTrivia } from './CorrectTrivia';
 import { Home } from './Home';
-import { IncorrectAnswer } from './IncorrectTrivia'
 import { About } from './About';
 import { Login } from './login';
 
@@ -23,6 +22,10 @@ function App(props) {
   const[questionsCorrect, setQuestionsCorrect] = useState([0, 0]);
   const[isLoggedIn, setisLoggedIn] = useState(false);
   const[isCorrect, setIsCorrect] = useState(false);
+  const [inputValue, setInputValue] = useState([{"mpd":"", "mpg":"",
+                                                "electricity":"", "naturalGas":"", "fuelOil":"", "propane":"",
+                                                "plastic":false, "glass":false, "aluminum":false, "paper":false,
+                                                "gasOption":"dollars", "electricityOption":"dollars", "fuelOption":"dollars", "propaneOption":"dollars"}]);
 
   const categoryOptions = ["21", "9919", "1215", "267", "3835"];
 
@@ -51,27 +54,38 @@ function App(props) {
     setisLoggedIn(true);
   }
 
+  const handleChange = (event) => {
+    let newValue = event.target.value;
+    let isChecked = event.target.checked;
+    let section = event.target.name;
+    let inputValueCopy = [...inputValue];
+    if(newValue === "on" || newValue === "off"){ 
+      inputValueCopy[0][section] = isChecked;
+    } else {
+      inputValueCopy[0][section] = newValue;
+    }
+    console.log(inputValueCopy);
+    setInputValue(inputValueCopy);
+  }
+  
   return (
     <>
       <NavBar />
       <Routes>
+        <Route path="/*" element={<Navigate to="/"/>}/>
         <Route path="login" element={<Login loginCallback={logIn} source="/"/>}  />
         <Route path="/" element={<Home />} />
         <Route path="inputData" element={<InputData />} />
         <Route path="insertData" element={<InsertData />}>
-          <Route path="insertEnergy" element={<InsertEnergy />} />
-          <Route path="insertWaste" element={<InsertWaste />} />
-          <Route path="insertVehicle" element={<InsertVehicle />} />
-          <Route index element={<InsertVehicle/>} />
+          <Route path="insertEnergy" element={<InsertEnergy changeCallback={handleChange} currValue={inputValue}/>} />
+          <Route path="insertWaste" element={<InsertWaste changeCallback={handleChange} currValue={inputValue}/>} />
+          <Route path="insertVehicle" element={<InsertVehicle changeCallback={handleChange} currValue={inputValue}/>} />
+          <Route index element={<InsertVehicle changeCallback={handleChange} currValue={inputValue}/>} />
         </Route>
         <Route path="triviaStartPage" element={<TriviaStartPage />} />
         <Route path="triviaCategory" element={<TriviaCategory setCatCallback={setCat} />} />
         <Route path="triviaQuestion" element={<TriviaQuestion id={category} questionCallback={answerQuestion} />} />
         <Route path="correct" element={<CorrectTrivia correct={isCorrect}/>} />
-
-        {/*}
-        <Route path="incorrect" element={<IncorrectAnswer />} /> 
-        */}
         <Route path="sustainabilityScore" element={<SustainabilityScore />}/>
         <Route path="dashboard" element={<Dashboard score={questionsCorrect} loggedIn={isLoggedIn} loginCallback={logIn} />}/>
         <Route path="about" element={<About />}/>

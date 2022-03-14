@@ -44,27 +44,19 @@ export function TriviaQuestion(props) {
     }
 
     let questionRows = answerList.map((answer, index) => {
-        if (index === 0 || index === 3) {
-            return (
-                <div className="col-md-6 d-flex" key={index}>
-                    <div className="buttonbody">
-                        <Link to="/correct" className="btn btn-lg triviaCategory" onClick={handleClick} name={answer}>
-                            {answer}
-                        </Link>
-                    </div>
-                </div>
-            )
-        } else {
-            return (
-                <div className="col-md-6 d-flex" key={index}>
-                    <div className="buttonbody">
-                        <Link to="/correct" className="btn btn-lg triviaCategory buttonTan" onClick={handleClick} name={answer}>
-                            {answer}
-                        </Link>
-                    </div>
-                </div>
-            )
+        let className = "btn btn-lg triviaCategory";
+        if (index === 1 || index === 2) {
+            className = "btn btn-lg triviaCategory buttonTan"
         }
+        return (
+            <div className="col-md-6 d-flex" key={index}>
+                <div className="buttonbody">
+                    <Link to="/correct" className={className} onClick={handleClick} name={answer}>
+                        {answer}
+                    </Link>
+                </div>
+            </div>
+        )
     });
 
     return (

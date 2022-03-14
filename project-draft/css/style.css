@@ -330,7 +330,6 @@ form{
     color:white;
 }
 .box-2 {
-    /*background-color: #DDD5D0;*/
     flex: 1;
     justify-content: center;
 }
@@ -452,7 +451,6 @@ form{
         background-color: transparent;
     }
     .explanation {
-        /*background-color: #DDD5D0;*/
         border-radius: 20px;
         padding: 20px;
     }

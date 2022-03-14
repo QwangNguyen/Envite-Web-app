@@ -1,7 +1,6 @@
 import React from 'react'; 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Login } from './login';
-import { propTypes } from 'react-bootstrap/esm/Image';
 
 export function Dashboard(props) {
     let dashboardInfo = [{"cardTitle" : "CO2 Generated in One Year", "cardDisplay": props.scoreData[0]["co2/year"] + " lbs"},

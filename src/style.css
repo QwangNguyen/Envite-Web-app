@@ -29,6 +29,7 @@ main {
 }
 .spaceBetween {
     justify-content: space-between;
+
 }
 /* Set align-items to center********/
 .container, .centerMain, header, .box-2 {
@@ -232,6 +233,13 @@ footer p {
     margin-right: 4em;
 }
 
+.firstTitleCard {
+    display: none;
+}
+.barChart {
+    display: none;
+}
+
 /****************Trivia*****/
 .containerTrivia {
     justify-content: center;
@@ -384,10 +392,11 @@ form{
 }
 
 
+
 /***************Larger Screens Styling ******/
 @media (min-width:768px) {
     main {
-        height: 130vh;
+        height: 100vh;
     }
 
     /* navbar styling********************************/
@@ -448,8 +457,12 @@ form{
         margin-left: 2em;
     }
 
-   
-
+    .firstTitleCard {
+        display: block;
+    }
+    .barChart {
+        display: block;
+    }
 
     /*Trivia***************************************/
     .triviaCategory {

@@ -16,6 +16,7 @@ import { CorrectTrivia } from './CorrectTrivia';
 import { Home } from './Home';
 import { About } from './About';
 import { Login } from './login';
+import { MySignInScreen } from './login2';
 import ASSUMPTIONS from '../data/assumptions.json';
 {/* Data from https://www3.epa.gov/carbon-footprint-calculator/ */}
 
@@ -96,7 +97,7 @@ function App(props) {
       <NavBar />
       <Routes>
         <Route path="/*" element={<Navigate to="/"/>}/>
-        <Route path="login" element={<Login loginCallback={logIn} source="/"/>}  />
+        <Route path="login" element={<MySignInScreen loginCallback={logIn} source="/"/>}  />
         <Route path="/" element={<Home />} />
         <Route path="inputData" element={<InputData />} />
         <Route path="insertData" element={<InsertData computeScore={computeScore}/>}>

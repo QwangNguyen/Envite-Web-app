@@ -1,6 +1,7 @@
 import React from 'react'; 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Login } from './login';
+import { MySignInScreen } from './login2';
 
 export function Dashboard(props) {
     let dashboardInfo = [{"cardTitle" : "CO2 Generated in One Year", "cardDisplay": props.scoreData[0]["co2/year"] + " lbs"},
@@ -17,7 +18,7 @@ export function Dashboard(props) {
     });
 
     if(!props.loggedIn) {
-        return <Login loginCallback={props.loginCallback} source="/dashboard"/>
+        return <MySignInScreen loginCallback={props.loginCallback} source="/dashboard"/>
     } else {
         return(
             <main>

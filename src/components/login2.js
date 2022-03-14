@@ -1,5 +1,6 @@
 import React from 'react'; 
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 //import the component
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -20,13 +21,13 @@ const firebaseUIConfig = {
 }
 
 //the React compnent to render
-export function MySignInScreen() {
+export function MySignInScreen(props) {
   const auth = getAuth(); //access the "authenticator"
   return (
     <main className="loginPage centerMain">
       <h1>My App</h1>
       <p>Please sign-in:</p>
-      <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
+      <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} onClick={props.login}/>
     </main>
   );
 }

@@ -60,37 +60,6 @@ export function TriviaQuestion(props) {
         }
     });
 
-    /*
-<div className="col-md-6 d-flex">
-                        <div className="buttonbody">
-                            <Link to="/correct" className="btn btn-lg triviaCategory" onClick={handleClick} name={answerList[0]}>
-                                {answerList[0]}
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-6 d-flex">
-                        <div className="buttonbody">
-                            <Link to="/correct" className="btn btn-lg triviaCategory buttonTan" onClick={handleClick} name={answerList[1]}>
-                                {answerList[1]}
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-6 d-flex">
-                        <div className="buttonbody">
-                            <Link to="/correct" className="btn btn-lg triviaCategory buttonTan" onClick={handleClick} name={answerList[2]}>
-                                {answerList[2]}
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-6 d-flex">
-                        <div className="buttonbody">
-                            <Link to="/correct" className="btn btn-lg triviaCategory" onClick={handleClick} name={answerList[3]}>
-                                {answerList[3]}
-                            </Link>
-                        </div>
-                    </div>
-    */
-
     return (
         <main className="centerMain">
             <div className="container containerTrivia">

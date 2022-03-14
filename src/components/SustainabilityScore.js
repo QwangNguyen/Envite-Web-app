@@ -4,7 +4,7 @@ export function SustainabilityScore(props) {
     return(    
         <main className="inputMain">
             <h1 className="titleOfPage">Sustainability Score</h1>
-            <p className="score">{props.scoreData[0]["sustainabilityScore"] === null ? 0 : (props.scoreData[0]["sustainabilityScore"] * 100).toFixed(3)} </p>
+            <p className="score">{isNaN(props.scoreData[0]["sustainabilityScore"]) ? 0 : (props.scoreData[0]["sustainabilityScore"] * 100).toFixed(3)} </p>
             <div className="container" role="button">
             <p className="scoreText"> Sustainability score is a score that takes into consideration how much Co2 you produce 
                 relative to how much Co2 the Earth can sustain for an average person. A score of 100 represents

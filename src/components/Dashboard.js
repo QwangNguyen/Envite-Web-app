@@ -7,26 +7,28 @@ export function Dashboard(props) {
 
     console.log(props);
 
+    let dashboardInfo = [{"cardTitle" : "CO2 Generated in One Year", "cardDisplay": "1350lbs"},
+                        {"cardTitle" : "Sustainability Score:", "cardDisplay": "40"},
+                        {"cardTitle" : "Equivalent Earths Used:", "cardDisplay": "2.5"}];
+
+    const displayCards = dashboardInfo.map((card) => {
+        return (
+            <div className='dashboardCard'>
+                <p className='bold titleCard'>{card.cardTitle}</p>
+                <p className='dataDisplay'>{card.cardDisplay}</p> 
+            </div>
+        )
+    });
+
     if(!props.loggedIn) {
         return <Login loginCallback={props.loginCallback} source="/dashboard"/>
     } else {
         return(
             <main>
                 <h1 className='text-center bold greeting'>Hello User</h1>
-                {/* Profile Picutre */}
+                {/* Profile Picture */}
                 <div className='container spaceBetween centerElement'>
-                    <div className='dashboardCard'>
-                        <p className='bold titleCard'>CO2 Generated in One year:</p>
-                        <p className='dataDisplay'>1350lbs</p>
-                    </div>
-                    <div className='dashboardCard'>
-                        <p className='bold titleCard'>Sustainability Score:</p>
-                        <p className='dataDisplay'>40</p>
-                    </div>
-                    <div className='dashboardCard'>
-                        <p className='bold titleCard'>Equivalent Earths Used:</p>
-                        <p className='dataDisplay'>2.5</p>
-                    </div>
+                    {displayCards}    
                 </div>
                 <div className='dashboardCard long'>
                     <p className='bold titleCard'>Earth Day:</p>

@@ -21,8 +21,6 @@ export function TriviaQuestion(props) {
     }
     
     let correctAnswer = questionList[0].answer;
-    console.log(props.questionCallback);
-    console.log(correctAnswer);
     let answerList = [];
     for(let i = 0; i < 4; i ++) {
         answerList.push(questionList[i].answer);

@@ -4,15 +4,13 @@ import { Login } from './login';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
 export function Dashboard(props) {
-    console.log(props);
-
-    let dashboardInfo = [{"cardTitle" : "CO2 Generated in One Year", "cardDisplay": props.scoreData[0]["co2/year"]},
+    let dashboardInfo = [{"cardTitle" : "CO2 Generated in One Year", "cardDisplay": props.scoreData[0]["co2/year"] + " lbs"},
                         {"cardTitle" : "Sustainability Score:", "cardDisplay": props.scoreData[0]["sustainabilityScore"]},
                         {"cardTitle" : "Equivalent Earths Used:", "cardDisplay": props.scoreData[0]["equivalentEarths"]}];
 
-    const displayCards = dashboardInfo.map((card) => {
+    const displayCards = dashboardInfo.map((card, index) => {
         return (
-            <div className='dashboardCard'>
+            <div className='dashboardCard' key={index}>
                 <p className='bold titleCard'>{card.cardTitle}</p>
                 <p className='dataDisplay'>{card.cardDisplay}</p> 
             </div>

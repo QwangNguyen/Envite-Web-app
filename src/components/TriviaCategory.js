@@ -13,7 +13,7 @@ export function TriviaCategory(props) {
     const rows = catInfoArr.map((cat, index) => {
         if (index % 2 === 0) {
             return (
-                <div className="col-md-4 d-flex centerElement">
+                <div className="col-md-4 d-flex centerElement" key={index}>
                     <div className="buttonbody">
                         <Link to="/triviaQuestion" onClick={() => props.setCatCallback(cat.catNum)} className="btn btn-lg triviaCategory">{cat.catName}</Link>
                     </div>
@@ -21,7 +21,7 @@ export function TriviaCategory(props) {
             )
         } else {
             return (
-                <div className="col-md-4 d-flex centerElement">
+                <div className="col-md-4 d-flex centerElement" key={index}>
                     <div className="buttonbody">
                         <Link to="/triviaQuestion" onClick={() => props.setCatCallback(cat.catNum)} className="btn btn-lg triviaCategory buttonTan">{cat.catName}</Link>
                     </div>

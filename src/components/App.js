@@ -66,7 +66,6 @@ function App(props) {
     } else {
       inputValueCopy[0][section] = newValue;
     }
-    console.log(inputValueCopy);
     setInputValue(inputValueCopy);
   }
   

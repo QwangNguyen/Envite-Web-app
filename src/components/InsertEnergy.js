@@ -6,9 +6,9 @@ export function InsertEnergy(props) {
                   {"name": "fuelOil", "option": "fuelOption", "text": "Fuel Oil per Month:", "unit": "gallons", "unitText": "Gallons"},
                   {"name": "propane", "option": "propaneOption", "text": "Propane per Month:", "unit": "gallons", "unitText": "Gallons"}];
   
-  const formDivs = formInfo.map((div) => {
+  const formDivs = formInfo.map((div, index) => {
     return (
-      <div key={div.name}>
+      <div key={index}>
         <label htmlFor={div.name} className="formInput labelForm">{div.text}</label><br/>
         <input type="number" name={div.name} onChange={props.changeCallback} value={props.currValue[0][div.name]} id={div.name} className="textBox formInput"/>
         <select className="selectForm" onChange={props.changeCallback} name={div.option} value={props.currValue[0][div.name]}>

@@ -11,7 +11,7 @@ export function Dashboard(props) {
         return (
             <div className='dashboardCard' key={index}>
                 <p className='bold titleCard'>{card.cardTitle}</p>
-                <p className='dataDisplay'>{card.cardDisplay}</p> 
+                <p className='dataDisplay'>{card.cardDisplay === null ? 0 : card.cardDisplay}</p> 
             </div>
         )
     });
@@ -31,7 +31,7 @@ export function Dashboard(props) {
                     <p className='dataDisplay'>(Represent the date that earth's yearly carbon threshold is passed if everyone lives the same way as you)</p>
                     <p className='dataDisplay'> March 25th</p>
                 </div>
-                <p className='bold titleCard firstTitleCard'>Questions answered correct:</p>
+                <p className='bold titleCard firstTitleCard'>Questions answered correct: {props.score[0]} / {props.score[1]}</p>
                 <ProgressBar variant="success" animated now={props.score[0]} max={props.score[1]} label={(props.score[1] === 0 ? '0' : props.score[0] / props.score[1] * 100 + '%')} className='barChart' />
                 <p className='bold titleCard firstTitleCard'>Improvement:</p>
                 <ProgressBar variant="primary" animated now={25}  label={40 + '%'}className='barChart'/>

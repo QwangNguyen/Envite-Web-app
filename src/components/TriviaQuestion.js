@@ -12,6 +12,9 @@ export function TriviaQuestion(props) {
           .then((data) => {
             setQuestionList(data.clues.sort(() => Math.random() - 0.5))
           })
+          .catch(function(err) {
+            alert("Error in loading category. Please go back and select a new category");
+          })
     }, [])
 
     if(questionList.length === 0) {

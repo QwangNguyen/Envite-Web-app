@@ -24,8 +24,7 @@ export function MySignInScreen() {
   const auth = getAuth(); //access the "authenticator"
   return (
     <main className="loginPage centerMain">
-      <h1>My App</h1>
-      <p>Please sign-in:</p>
+      <h1>We envite you to go green!</h1>
       <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
     </main>
   );

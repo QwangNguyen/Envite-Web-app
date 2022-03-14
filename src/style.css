@@ -119,6 +119,9 @@ footer p {
 .loginPage {
     /* set the text style for the main part */
     text-align: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    color: #586F6B;
 }
 
 .col-sm-10 {

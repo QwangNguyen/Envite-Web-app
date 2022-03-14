@@ -1,6 +1,5 @@
 import React from 'react'; 
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { Login } from './login';
 import { MySignInScreen } from './login2';
 
 export function Dashboard(props) {

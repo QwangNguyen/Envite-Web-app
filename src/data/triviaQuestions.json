@@ -1,0 +1,42 @@
+[
+    {
+        "category": "Urban Ecology",
+        "question": "What is one of the factors influencing urban biodiversity?",
+        "answer": "Tolerance",
+        "incorrect1": "Number of bird species",
+        "incorrect2": "Tree height",
+        "incorrect3": "None of the above"
+    },
+    {
+        "category": "Geographical Information Systems",
+        "question": "Who first coined the term geographic information system?",
+        "answer": "Roger F. Tomlinson",
+        "incorrect1": "Obama",
+        "incorrect2": "Abraham Lincoln",
+        "incorrect3": "Beyoncé"
+    },
+    {
+        "category": "Climate Change",
+        "question": "Which of the following is a greenhouse gas?",
+        "answer": "All of the above",
+        "incorrect1": "Carbon Dioxide",
+        "incorrect2": "Methane",
+        "incorrect3": "Water Vapor"
+    },
+    {
+        "category": "Wildlife Ecology",
+        "question": "Due to carrying capacity, populations (in nature) tend to show ____ growth patterns",
+        "answer": "logistical",
+        "incorrect1": "exponential",
+        "incorrect2": "linear",
+        "incorrect3": "quadratic"
+    },
+    {
+        "category": "Endangered Species",
+        "question": "Which of the following species is endangered?",
+        "answer": "Javan rhinoceros",
+        "incorrect1": "Red squirrel",
+        "incorrect2": "Manatee",
+        "incorrect3": "Grizzly bear"
+    }
+]

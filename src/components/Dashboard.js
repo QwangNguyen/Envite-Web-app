@@ -4,9 +4,6 @@ import { Login } from './login';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
 export function Dashboard(props) {
-
-    console.log(props);
-
     if(!props.loggedIn) {
         return <Login loginCallback={props.loginCallback} source="/dashboard"/>
     } else {
@@ -17,15 +14,15 @@ export function Dashboard(props) {
                 <div className='container spaceBetween centerElement'>
                     <div className='dashboardCard'>
                         <p className='bold titleCard'>CO2 Generated in One year:</p>
-                        <p className='dataDisplay'>1350lbs</p>
+                        <p className='dataDisplay'>{props.scoreData[0]["co2/year"]} lbs</p>
                     </div>
                     <div className='dashboardCard'>
                         <p className='bold titleCard'>Sustainability Score:</p>
-                        <p className='dataDisplay'>40</p>
+                        <p className='dataDisplay'>{props.scoreData[0]["sustainabilityScore"]}</p>
                     </div>
                     <div className='dashboardCard'>
                         <p className='bold titleCard'>Equivalent Earths Used:</p>
-                        <p className='dataDisplay'>2.5</p>
+                        <p className='dataDisplay'>{props.scoreData[0]["equivalentEarths"]}</p>
                     </div>
                 </div>
                 <div className='dashboardCard long'>

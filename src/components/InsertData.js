@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {Link, Outlet} from 'react-router-dom';
 
-export function InsertData() {
+export function InsertData(props) {
     return (
         <main>
             <div className="container-fluid">
@@ -18,7 +18,7 @@ export function InsertData() {
                     </nav>
                     <Outlet />
                     <div className="text-center">
-                        <Link to="/sustainabilityScore" className="analyze roundButton">Analyze</Link>
+                        <Link to="/sustainabilityScore" className="analyze roundButton" onClick={props.computeScore}>Analyze</Link>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react'; 
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Login } from './login';
-import { propTypes } from 'react-bootstrap/esm/Image';
+// import { propTypes } from 'react-bootstrap/esm/Image';
 
 export function Dashboard(props) {
 
@@ -14,7 +14,7 @@ export function Dashboard(props) {
             <main>
                 <h1 className='text-center bold greeting'>Hello User</h1>
                 {/* Profile Picutre */}
-                <div className='container spaceBetween centerElement'>
+                <div className='container spaceBetween centerElement' aria-label="Dashboard">
                     <div className='dashboardCard'>
                         <p className='bold titleCard'>CO2 Generated in One year:</p>
                         <p className='dataDisplay'>1350lbs</p>

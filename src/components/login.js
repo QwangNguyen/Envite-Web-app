@@ -11,15 +11,15 @@ export function Login(props) {
     return (
         <main className="loginPage centerMain">
             <form className="form-horizontal">
-                <div className="container containerLogin">
-                    <div className="form-group">
+                <div className="container containerLogin" aria-label="Login">
+                    <div className="form-group" aria-label="User Name">
                         <div className="col-sm-10">
                             <label htmlFor="UserName">User Name</label>
                             <input type="text" className="form-control" name="UserName" id="UserName" placeholder="UserName" />
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-10">
+                        <div className="col-sm-10" aria-label="Password">
                             <label htmlFor="password">Password</label>
                             <input type="text" className="form-control" name="password" id="password" placeholder="Password" />
                         </div>

@@ -14,7 +14,6 @@ import { TriviaCategory } from './TriviaCategory';
 import { TriviaQuestion } from './TriviaQuestion';
 import { CorrectTrivia } from './CorrectTrivia';
 import { Home } from './Home';
-import { IncorrectAnswer } from './IncorrectTrivia'
 import { About } from './About';
 import { Login } from './login';
 

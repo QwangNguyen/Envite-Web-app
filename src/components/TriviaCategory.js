@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom';
 export function TriviaCategory(props) {
     return (
         <main className="centerMain">
-            <div className="container containerTrivia">
+            <div className="container containerTrivia" aria-label="Trivia Category">
                 <div className="row">
                     <div className="col-md-4 d-flex centerElement">
                         <div className="buttonbody">

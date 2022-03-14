@@ -5,14 +5,14 @@ export function CorrectTrivia(props) {
     if(props.correct) {
         return (
             <main className="triviaBody centerMain">
-                <div className="container containerTrivia">
+                <div className="container containerTrivia" aria-label="Trivia">
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="content">
                                 <img src="img/coin.png" alt="a coin" aria-label="coin when your get the ansers for the trivia game" />
                             </div>
                         </div>
-                        <div className="col-sm-12">
+                        <div className="col-sm-12" aria-label="Trivia Correct Answer">
                             <div className="content">
                                 <p className="message">You got it!</p>
                             </div>
@@ -27,7 +27,7 @@ export function CorrectTrivia(props) {
     } else {
         return (
             <main className="triviaBody centerMain">
-                <div className="col-sm-12">
+                <div className="col-sm-12" aria-label="Trivia Incorrect Answer">
                     <div className="content">
                         <h1 className="aboutHeader">Incorrect answer!</h1>
                         <p className="aboutText">Your answer was incorrect. :(</p>

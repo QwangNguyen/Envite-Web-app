@@ -36,10 +36,10 @@ export function TriviaQuestion(props) {
 
     return (
         <main className="centerMain">
-            <div className="container containerTrivia">
+            <div className="container containerTrivia" aria-label="Trivia Question Title">
                 <p className="question">{question}</p>
             </div>
-            <div className="container containerTrivia containerPadding">
+            <div className="container containerTrivia containerPadding" aria-label="Trivia Question">
                 <div className="row">
                     <div className="col-md-6 d-flex">
                         <div className="buttonbody">

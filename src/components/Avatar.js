@@ -3,7 +3,7 @@ import React from 'react';
 export function Avatar() {
     return(
         
-        <div className="container spaceBetween">
+        <div className="container spaceBetween" aria-label="container">
             <div className="avatar">
                 <img src="./img/avatar.png" alt="the User's avatar which represents them" />
             </div>

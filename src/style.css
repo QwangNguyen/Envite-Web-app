@@ -316,6 +316,13 @@ footer p {
     text-align: center;
     font-weight: bold;
 }
+.scoreText {
+    margin-top: 1.5em;
+    background-color: #7F9183;
+    padding: 1em 1em;
+    border-radius: 40px;
+    font-size: 25px;
+}
 
 /***Insert Data *************************/
 .container-fluid {

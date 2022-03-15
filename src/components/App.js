@@ -103,23 +103,6 @@ function App(props) {
     })
   })
 
-  /*
-  const db = getDatabase();
-
-  useEffect(() => {
-    const userRef = ref(db, "user/" + currentUser);
-
-    onValue(userRef, (snapshot) => {
-      const newValue = snapshot.val()
-        setScoreData(newValue)
-    })
-
-
-  }, [db])
-
-  */
-  
-
   return (
     <>
       <NavBar isLoggedIn={currentUser !== null}/>

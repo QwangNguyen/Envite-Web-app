@@ -12,7 +12,7 @@ body {
     border-radius: 40px;
 }
 main {
-    height: 130vh;
+    height: 150vh;
 }
 .centerMain {
     text-align: center;
@@ -315,6 +315,7 @@ footer p {
     font-size: 5em;
     text-align: center;
     font-weight: bold;
+    color:white;
 }
 .scoreText {
     margin-top: 1.5em;
@@ -322,6 +323,16 @@ footer p {
     padding: 1em 1em;
     border-radius: 40px;
     font-size: 25px;
+}
+
+.piechart{
+    padding-left: 30em;
+}
+
+.scoreContainer {
+    flex-wrap: wrap;
+    padding-left: 5em;
+    padding-right: 5em;
 }
 
 /***Insert Data *************************/
@@ -401,7 +412,7 @@ form{
 /***************Larger Screens Styling ******/
 @media (min-width:768px) {
     main {
-        height: 100vh;
+        height: 140vh;
     }
 
     /* navbar styling********************************/
@@ -491,6 +502,7 @@ form{
     /*Input Data*************/
     .inputMain {
         background-image: url("../public/img/ForestBackground.jpg");
+        opacity: 0.85;
     }
     .titleOfPage {
         font-size: 6rem;

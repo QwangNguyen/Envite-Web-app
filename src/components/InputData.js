@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export function InputData() {
     return (
-        <div>
+        <div aria-label="Input Data">
             <main className="inputMain">
                 <h1 className="titleOfPage">See Your Impact On <br/> Our Planet</h1>
                 <div className="containerInput container">

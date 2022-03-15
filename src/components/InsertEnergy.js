@@ -8,7 +8,7 @@ export function InsertEnergy(props) {
   
   const formDivs = formInfo.map((div, index) => {
     return (
-      <div key={index}>
+      <div key={index} aria-label="Insert Energy">
         <label htmlFor={div.name} className="formInput labelForm">{div.text}</label><br/>
         <input type="number" name={div.name} onChange={props.changeCallback} value={props.currValue[0][div.name]} id={div.name} className="textBox formInput"/>
         <select className="selectForm" onChange={props.changeCallback} name={div.option} value={props.currValue[0][div.name]}>

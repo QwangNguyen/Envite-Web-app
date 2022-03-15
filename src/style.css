@@ -327,6 +327,7 @@ footer p {
 
 .piechart{
     justify-content: center;
+    size: 20px;
 }
 
 .scoreAndChart {
@@ -340,7 +341,6 @@ footer p {
 
 .piechart svg {
     width: 50%;
-    padding-left: 10em;
 }
 
 .scoreContainer {

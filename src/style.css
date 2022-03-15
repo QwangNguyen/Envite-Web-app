@@ -12,7 +12,7 @@ body {
     border-radius: 40px;
 }
 main {
-    height: 150vh;
+    height: 130vh;
 }
 .centerMain {
     text-align: center;
@@ -322,7 +322,7 @@ footer p {
     background-color: #7F9183;
     padding: 1em 1em;
     border-radius: 40px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .piechart{
@@ -412,7 +412,7 @@ form{
 /***************Larger Screens Styling ******/
 @media (min-width:768px) {
     main {
-        height: 140vh;
+        height: 130vh;
     }
 
     /* navbar styling********************************/

@@ -326,7 +326,21 @@ footer p {
 }
 
 .piechart{
-    padding-left: 30em;
+    justify-content: center;
+}
+
+.scoreAndChart {
+    display: flex;
+    padding-right: 20em;
+}
+
+.scoreAndChart p {
+    font-size: 150px;
+}
+
+.piechart svg {
+    width: 50%;
+    padding-left: 10em;
 }
 
 .scoreContainer {

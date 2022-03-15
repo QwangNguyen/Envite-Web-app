@@ -19,6 +19,14 @@ const firebaseUIConfig = {
 }
 
 export function MySignInScreen(props) {
+    if(props.isLoggedIn) {
+        return (
+        <main>
+            <h1 className="titleOfPage">Already logged in!</h1>
+        </main>
+        )
+    }
+
   const auth = getAuth(); 
   return (
     <main className="loginPage centerMain">

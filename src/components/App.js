@@ -106,7 +106,7 @@ function App(props) {
       <NavBar isLoggedIn={currentUser !== null}/>
       <Routes>
         <Route path="/*" element={<Navigate to="/"/>}/>
-        <Route path="login" element={<MySignInScreen source="/"/>}  />
+        <Route path="login" element={<MySignInScreen source="/" isLoggedIn={currentUser !== null}/>}  />
         <Route path="/" element={<Home />} />
         <Route path="inputData" element={<InputData />} />
         <Route path="insertData" element={<InsertData computeScore={computeScore}/>}>

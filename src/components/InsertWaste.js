@@ -2,6 +2,7 @@ import React from 'react';
 
 export function InsertWaste(props) {
     return(
+      <div aria-label="Insert Waste">
         <form>
           <h1 className="titleOfPage fontChanger">Check off the Items you currently Recycle</h1>
           <div>
@@ -21,5 +22,6 @@ export function InsertWaste(props) {
             <label htmlFor="recyclePaper" className="labelForm">Paper</label>
           </div>
         </form>
+      </div>
     );
 }

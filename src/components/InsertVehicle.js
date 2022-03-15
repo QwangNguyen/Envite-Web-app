@@ -2,6 +2,7 @@ import React from 'react';
 
 export function InsertVehicle(props) {
     return(
+        <div aria-label="Insert Vehicle">
         <form>
             <label htmlFor="milesPerDay" className="formInput labelForm">
                 Miles Driven Per Day:
@@ -13,5 +14,6 @@ export function InsertVehicle(props) {
             </label><br/>
             <input type="number" name="mpg" onChange={props.changeCallback} value={props.currValue[0]["mpg"]} id="milesPerGallon" className="textBox formInput"/><br/>
         </form>
+        </div>
     );
 }

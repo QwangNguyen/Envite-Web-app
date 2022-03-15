@@ -4,7 +4,7 @@ import {Link, Outlet} from 'react-router-dom';
 export function InsertData(props) {
     return (
         <main>
-            <div className="container-fluid">
+            <div className="container-fluid" aria-label="Insert Data">
                 <div className="box-1">
                     <img src="img/JustEarth.png" alt="pixelated earth" className="earth"/>
                 </div>

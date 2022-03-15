@@ -9,7 +9,8 @@ export function SustainabilityScore(props) {
     return(    
         <main className="inputMain">
             <h1 className="titleOfPage">Sustainability Score</h1>
-            <div className="d-flex piechart">
+            <div className="scoreAndChart">
+            <div className="piechart">
                 <PieChart
                 data={[
                     { title: 'Vehicle C02', value: vehiclePortion, color: "#7F9183"},
@@ -17,10 +18,12 @@ export function SustainabilityScore(props) {
                 ]}
                 label={({ dataEntry }) => `${Math.round(dataEntry.percentage)} %`}
                 labelStyle = {{
-                    fontFamily: 'Roboto'}}/>;
+                    fontFamily: 'Roboto'}}/>
                 <PieChart />
             </div>
             <p className="score">{isNaN(props.scoreData[0]["sustainabilityScore"]) ? 0 : (props.scoreData[0]["sustainabilityScore"] * 100).toFixed(3)} </p>
+            </div>
+
             <div className="scoreContainer" role="button">
             <p className="scoreText"> Sustainability score is a score that takes into consideration how much Co2 you produce 
                 relative to how much Co2 the Earth can sustain for an average person. A score of 100 represents

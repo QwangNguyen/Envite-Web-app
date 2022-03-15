@@ -1,28 +1,25 @@
-import React from 'react'; 
+import React from 'react';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
 import { Routes, Route, Navigate } from 'react-router-dom';
-
-//import the component
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { ref, onValue } from "firebase/database"
 
-//an object of configuration values
 const firebaseUIConfig = {
   signInOptions: [
     GoogleAuthProvider.PROVIDER_ID,
     { provider: EmailAuthProvider.PROVIDER_ID, requiredDisplayName: true },
   ],
-  signInFlow: 'popup', //don't redirect to authenticate
-  credentialHelper: 'none', //don't show the email account chooser
-  callbacks: { //"lifecycle" callbacks
+  signInFlow: 'popup', 
+  credentialHelper: 'none', 
+  callbacks: { 
     signInSuccessWithAuthResult: () => {
-      return false; //don't redirect after authentication
+      return false;
     }
   }
 }
 
-//the React compnent to render
 export function MySignInScreen(props) {
-  const auth = getAuth(); //access the "authenticator"
+  const auth = getAuth(); 
   return (
     <main className="loginPage centerMain">
       <h1>We envite you to go green!</h1>

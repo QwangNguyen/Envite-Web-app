@@ -1,6 +1,6 @@
 import React from 'react'; 
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { MySignInScreen } from './login2';
+import { MySignInScreen } from './Login2';
 
 export function Dashboard(props) {
     let dashboardInfo = [{"cardTitle" : "CO2 Generated in One Year", "cardDisplay": props.scoreData[0]["co2/year"] + " lbs"},
@@ -21,7 +21,7 @@ export function Dashboard(props) {
     } else {
         return(
             <main>
-                <h1 className='text-center bold greeting'>Hello User</h1>
+                <h1 className='text-center bold greeting'>Hello {props.user.displayName}</h1>
                 <div className='container spaceBetween centerElement'>
                     {displayCards}    
                 </div>

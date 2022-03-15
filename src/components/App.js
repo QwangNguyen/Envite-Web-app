@@ -1,5 +1,9 @@
-import React, { useState } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import { Routes, Route, Navigate } from 'react-router-dom';
+
+import { getAuth, onAuthStateChanged} from 'firebase/auth'
+import { ref, set as firebaseSet } from 'firebase/database'
+
 import {InputData} from './InputData';
 import {InsertData} from './InsertData';
 import NavBar from './NavBar';
@@ -15,15 +19,14 @@ import { TriviaQuestion } from './TriviaQuestion';
 import { CorrectTrivia } from './CorrectTrivia';
 import { Home } from './Home';
 import { About } from './About';
-import { Login } from './login';
-import { MySignInScreen } from './login2';
+import { MySignInScreen } from './Login2';
 import ASSUMPTIONS from '../data/assumptions.json';
 {/* Data from https://www3.epa.gov/carbon-footprint-calculator/ */}
 
 function App(props) {
   const[category, setCategory] = useState('');
   const[questionsCorrect, setQuestionsCorrect] = useState([0, 0]);
-  const[isLoggedIn, setisLoggedIn] = useState(false);
+  const[currentUser, setCurrentUser] = useState(null);
   const[isCorrect, setIsCorrect] = useState(false);
   const[scoreData, setScoreData] = useState([{"co2/year":0, "sustainabilityScore":0, "equivalentEarths":0}])
   const [inputValue, setInputValue] = useState([{"mpd": "", "mpg": "", "electricity": "", "naturalGas": "", "fuelOil": "", "propane": "",
@@ -50,10 +53,6 @@ function App(props) {
     }
     questionsCorrectCopy[1]++;
     setQuestionsCorrect(questionsCorrectCopy)
-  }
-
-  const logIn = () => {
-    setisLoggedIn(true);
   }
 
   const handleChange = (event) => {
@@ -90,13 +89,24 @@ function App(props) {
     let earthData = [{"co2/year":totalWaste, "sustainabilityScore":sustainabilityScore, "equivalentEarths":earthsUsed}];
     setScoreData(earthData);
   }
-  
+
+  useEffect(()=> {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (firebaseUser) => {
+      if(firebaseUser) {
+        setCurrentUser(firebaseUser);
+      } else {
+        setCurrentUser(null);
+      }
+    })
+  })
+
   return (
     <>
-      <NavBar />
+      <NavBar isLoggedIn={currentUser !== null}/>
       <Routes>
         <Route path="/*" element={<Navigate to="/"/>}/>
-        <Route path="login" element={<MySignInScreen loginCallback={logIn} source="/"/>}  />
+        <Route path="login" element={<MySignInScreen source="/"/>}  />
         <Route path="/" element={<Home />} />
         <Route path="inputData" element={<InputData />} />
         <Route path="insertData" element={<InsertData computeScore={computeScore}/>}>
@@ -110,7 +120,7 @@ function App(props) {
         <Route path="triviaQuestion" element={<TriviaQuestion id={category} questionCallback={answerQuestion} />} />
         <Route path="correct" element={<CorrectTrivia correct={isCorrect}/>} />
         <Route path="sustainabilityScore" element={<SustainabilityScore scoreData={scoreData}/>}/>
-        <Route path="dashboard" element={<Dashboard score={questionsCorrect} loggedIn={isLoggedIn} loginCallback={logIn} scoreData={scoreData}/>}/>
+        <Route path="dashboard" element={<Dashboard score={questionsCorrect} loggedIn={currentUser !== null} scoreData={scoreData} user={currentUser}/>}/>
         <Route path="about" element={<About />}/>
       </Routes>
       <Footer/>

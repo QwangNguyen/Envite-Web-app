@@ -7,15 +7,15 @@ import 'whatwg-fetch';
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyALfBwnkL_afT2Rdda1qN9G6gYhWY2tF7Q",
-    authDomain: "react-chat-wi22.firebaseapp.com",
-    projectId: "react-chat-wi22",
-    storageBucket: "react-chat-wi22.appspot.com",
-    messagingSenderId: "982581109530",
-    appId: "1:982581109530:web:eb828f5136a34d4de042a3"
+  apiKey: "AIzaSyAUF_uQb0zyMjp1xJSPMNHeRqLllidbcbM",
+  authDomain: "envite-info340.firebaseapp.com",
+  projectId: "envite-info340",
+  storageBucket: "envite-info340.appspot.com",
+  messagingSenderId: "808364912690",
+  appId: "1:808364912690:web:ec8cd9cd22018377bd8c2b"
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 ReactDOM.render(
     <BrowserRouter>

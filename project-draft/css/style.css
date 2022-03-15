@@ -294,11 +294,6 @@ footer p {
     font-weight: bold;
 }
 
-.chart {
-    display: block;
-    margin: auto;
-}
-
 /***Insert Data *************************/
 .container-fluid {
     flex-wrap: wrap;

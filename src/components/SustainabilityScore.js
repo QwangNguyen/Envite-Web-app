@@ -9,7 +9,7 @@ export function SustainabilityScore(props) {
     return(    
         <main className="inputMain">
             <h1 className="titleOfPage">Sustainability Score</h1>
-            <div className="col-md-6 d-flex pieChart">
+            <div className="col-md-6 d-flex">
                 <PieChart
                 data={[
                     { title: 'Vehicle C02', value: vehiclePortion, color: "#7F9183"},

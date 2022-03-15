@@ -124,6 +124,10 @@ footer p {
     color: #586F6B;
 }
 
+.firebaseui-use-spinner {
+    padding-top: 2em;
+}
+
 .col-sm-10 {
     /* set the width for col-sm-2 class */
     width: 280px;
@@ -235,13 +239,6 @@ footer p {
     margin-left: 4em;
     margin-right: 4em;
 }
-/*
-.firstTitleCard {
-    display: none;
-}
-.barChart {
-    display: none;
-} */
 
 /****************Trivia*****/
 .containerTrivia {

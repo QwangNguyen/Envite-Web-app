@@ -86,7 +86,9 @@ function App(props) {
     let totalWaste = vehicleCo2 + energyCo2 - wasteC02 + 692;
     let earthsUsed = (totalWaste * 7753000000) / 92594150117649.6;
     let sustainabilityScore = (92594150117649.6 / 7753000000) / totalWaste;
-    let earthData = [{"co2/year":totalWaste, "sustainabilityScore":sustainabilityScore, "equivalentEarths":earthsUsed, "vehiclePortion":vehicleCo2, "energyPortion":energyCo2}];
+    let earthData = [{"co2/year":totalWaste, "sustainabilityScore":sustainabilityScore, "equivalentEarths":earthsUsed,
+                    "vehiclePortion":vehicleCo2, "energyPortion":energyCo2,
+                  }];
     setScoreData(earthData);
   }
 

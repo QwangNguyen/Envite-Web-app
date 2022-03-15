@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { ref, onValue } from "firebase/database"
 
@@ -21,9 +21,7 @@ const firebaseUIConfig = {
 export function MySignInScreen(props) {
     if(props.isLoggedIn) {
         return (
-        <main>
-            <h1 className="titleOfPage">Already logged in!</h1>
-        </main>
+            <Navigate to="/"/>
         )
     }
 

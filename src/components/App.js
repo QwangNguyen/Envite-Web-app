@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { getAuth, onAuthStateChanged} from 'firebase/auth'
-import { ref, set as firebaseSet } from 'firebase/database'
+import { ref, set as firebaseSet, getDatabase,push as firebasePush, onValue } from 'firebase/database'
 
 import {InputData} from './InputData';
 import {InsertData} from './InsertData';
@@ -102,6 +102,23 @@ function App(props) {
       }
     })
   })
+
+  /*
+  const db = getDatabase();
+
+  useEffect(() => {
+    const userRef = ref(db, "user/" + currentUser);
+
+    onValue(userRef, (snapshot) => {
+      const newValue = snapshot.val()
+        setScoreData(newValue)
+    })
+
+
+  }, [db])
+
+  */
+  
 
   return (
     <>

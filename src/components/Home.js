@@ -1,6 +1,8 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
 
+// <iframe title="Tons of CO2 emitted into the atmosphere" src="https://www.theworldcounts.com/embed/challenges/23?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14" style={{border: 'none'}} height={100} width={300} />
+//<iframe title="Number of planet Earths we need" src="https://www.theworldcounts.com/embed/challenges/83?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14" style={{border: 'none'}} height={100} width={300} />
 export function Home() {
     return (
         <div>
@@ -21,6 +23,11 @@ export function Home() {
                 </div>
                 <div role="document">
                     <div className="missionContainer">
+                        <div class="counter">
+                            <h1 className="missionInfoWhite">Real-time counter:</h1>
+                            <iframe title="Tons of CO2 emitted into the atmosphere" src="https://www.theworldcounts.com/embed/challenges/23?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14" style={{border: 'none'}} height={100} width={300} />
+                            <iframe title="Number of planet Earths we need" src="https://www.theworldcounts.com/embed/challenges/83?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14" style={{border: 'none'}} height={100} width={300} />
+                        </div>
                         <div>
                             <h1 className="missionInfo">Our Mission</h1>
                             <p className="info">We believe that everyone can participate in the action of being more environmental friendly just by changing a bit of their lifestyles!</p>
@@ -28,8 +35,7 @@ export function Home() {
                         </div>
                     </div>
                 </div>
-                <iframe title="Tons of CO2 emitted into the atmosphere" src="https://www.theworldcounts.com/embed/challenges/23?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14" style={{border: 'none'}} height={100} width={300} />
-                <iframe title="Number of planet Earths we need" src="https://www.theworldcounts.com/embed/challenges/83?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14" style={{border: 'none'}} height={100} width={300} />            </main>
+            </main>
         </div>
     )
 }

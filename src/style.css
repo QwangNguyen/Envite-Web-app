@@ -169,6 +169,15 @@ footer p {
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
+
+.missionInfoWhite {
+    /* set the font and margin for top level heading to make it look nice */
+    color:white;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
 .info {
     /* set the margin for all the paragraphs */
     margin-top: 0;
@@ -182,6 +191,12 @@ footer p {
     margin-right: auto;
     padding: .25rem;
 }
+
+.counter {
+    margin: auto;
+    background-color: #586F6B;
+}
+
 .footprint {
     color: black;
     font-size: 25px;

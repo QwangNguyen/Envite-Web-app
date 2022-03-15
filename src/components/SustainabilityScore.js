@@ -5,13 +5,6 @@ export function SustainabilityScore(props) {
     // pull data needed from props
     let vehiclePortion = props.scoreData[0]["vehiclePortion"];
     let energyPortion = props.scoreData[0]["energyPortion"];
-    // set up data for vehicle vs. energy pie chart
-    let dataGeneral = [
-        { title: 'Vehicle C02', value: vehiclePortion, color: "#7F9183"},
-        { title: 'Energy C02', value: energyPortion, color: "#CFC0BD"}
-    ];
-    // set up data for more detailed pie chart
-    let dataDetailed = [];
 
     return(    
         <main className="inputMain">
